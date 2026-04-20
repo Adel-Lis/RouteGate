@@ -6,6 +6,17 @@ RouteGate is a flight planning and weather assessment system designed to help av
 
 This file aims to provide a step-by-step instruction for deploying RouteGate from your Google Cloud Platform (GCP) Shell. The entire process can take aproximately 10-20 minutes to be completed.
 
+---
+
+> #### For local setup
+
+Please refer to the documentation below:
+
+- Setup Docker **_WITH_** Kubernetes services : [local-setup-k8s.md](local-setup-k8s.md)
+- Setup Docker **_WITHOUT_** Kubernetes services : [local-setup-no-k8s.md](local-setup-no-k8s.md)
+
+---
+
 #### Prerequisites
 
 Before beginig the set up process, you must have:
@@ -89,10 +100,9 @@ chmod +x ./*.sh
 Confirm the cluster configuration by clicking `y` (or click `n` and set your own configurations).
 
 4. Wait for the setup to be completed. This process might table up to 15 minutes. In this step three main things are happening:
-
-   - The GKE Cluster is created
-   - The Docker Images are built
-   - Kubernetes are deployed
+    - The GKE Cluster is created
+    - The Docker Images are built
+    - Kubernetes are deployed
 
 5. When the script finished you will see some access information that look like this :
 
