@@ -1,7 +1,10 @@
 # RouteGate Web Application - INFS32308 Project
 
 RouteGate is a flight planning and weather assessment system designed to help aviation professionists and airport air control staff to make critical decisions about flight operations.
-The original version can be found [here](https://github.com/Adel13Lis/INFS3208-ROUTEGATE), this newer version allows the user to execute local setup. 
+
+> _To read more abuot motivation, app features, technologies used and design workflow, please check the `Adel_Lis_Project_Proposal.pdf` file in this repository._
+
+The original version can be found [here](https://github.com/Adel13Lis/INFS3208-ROUTEGATE), this newer version allows the user to execute local setup.
 
 ## Set up guide
 
