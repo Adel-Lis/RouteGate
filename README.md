@@ -1,14 +1,14 @@
 # RouteGate Web Application - INFS32308 Project
 
-RouteGate is a flight planning and weather assessment system designed to help aviation professionists and airport air control staff to make critical decisions about flight operations.
+RouteGate is a flight planning and weather assessment system designed to help aviation professionals and airport air control staff make critical decisions about flight operations.
 
-> _To read more abuot motivation, app features, technologies used and design workflow, please check the `Adel_Lis_Project_Proposal.pdf` file in this repository._
+> _To read more about motivation, app features, technologies used and design workflow, please check the `Adel_Lis_Project_Proposal.pdf` file in this repository._
 
 The original version can be found [here](https://github.com/Adel13Lis/INFS3208-ROUTEGATE), this newer version allows the user to execute local setup.
 
 ## Set up guide
 
-This file aims to provide a step-by-step instruction for deploying RouteGate from your Google Cloud Platform (GCP) Shell. The entire process can take aproximately 10-20 minutes to be completed.
+This file aims to provide a step-by-step instruction for deploying RouteGate from your Google Cloud Platform (GCP) Shell. The entire process can take approximately 10–20 minutes to complete.
 
 ---
 
@@ -23,9 +23,9 @@ Please refer to the documentation below:
 
 #### Prerequisites
 
-Before beginig the set up process, you must have:
+Before beginning the setup process, you must have:
 
-- google account to access GCP
+- a Google account to access GCP
 - valid credit amount for GCP billing verification (**_you need to have billing credits in you account in order to set up RouteGate_**)
 
 #### Step 1 - Create a Google Cloud Platform Project
@@ -36,7 +36,7 @@ A GCP project serves as an organizational container for all your cloud resources
 2. Sign in with your Google account (accept term and conditions)
 3. In the top search bar type "Projects" and then click on "**Create a Project"**
    ![alt text](readme-images/step1.png)
-4. Give the project a name and copy the project ID somewhere (you will need that later)
+4. Give the project a name and copy the project ID somewhere (you will need it later)
    ![alt text](readme-images/step2.png)
 5. Click on create and wait for the project to be created
 6. Click on the project button and select your newly created project
@@ -46,19 +46,14 @@ A GCP project serves as an organizational container for all your cloud resources
 #### Step 2 - Open Google Cloud Shell
 
 1. Locate the cloud shell icon in the top-right corner of the GCC (look for the icon `>_`). Once found, click on it and authorize the access.
-2. Wait for the shell to be ready. Once ready, you will see this :
-
-```
-gcloud config get-value project
-```
-
+2. Wait for the shell to be ready
 3. Verify your project by running this command :
 
 ```
 gcloud config get-value project
 ```
 
-This command should display your Project ID (check it with the ID copied from step 1). If you see another ID, change to your project by running this command
+This command should display your Project ID (check it against the ID copied in Step 1). If you see another ID, change to your project by running this command
 
 ```
 gcloud config set project YOUR_PROJECT_ID
@@ -79,7 +74,7 @@ This will create a new directory INFS3208-ROUTEGATE containing all the project f
 
 #### Step 4 - Run the Complete Setup Script
 
-RouteGate contains a setup script (`setup.sh`) that automates the entire deployment process. This script creates the Kubernetes cluster, build Docker images, push them to Container Registry, and deploy all application components.
+RouteGate contains a setup script (`setup.sh`) that automates the entire deployment process. This script creates the Kubernetes cluster, builds the Docker images, pushes them to Container Registry, and deploy all application components.
 
 1. Set the GCP Project ID Environment Variable by running the command :
 
@@ -87,7 +82,7 @@ RouteGate contains a setup script (`setup.sh`) that automates the entire deploym
 export GCP_PROJECT_ID=$(gcloud config get-value project)
 ```
 
-You can verify that the command run correctly if the following like returns your project ID : `echo $GCP_PROJECT_ID`
+You can verify that the command ran correctly if the following line returns your project ID : `echo $GCP_PROJECT_ID`
 
 2. Make the all the scripts executable :
 
@@ -103,12 +98,12 @@ chmod +x ./*.sh
 
 Confirm the cluster configuration by clicking `y` (or click `n` and set your own configurations).
 
-4. Wait for the setup to be completed. This process might table up to 15 minutes. In this step three main things are happening:
+4. Wait for the setup to be completed. This process might take up to 15 minutes. In this step three main things are happening:
     - The GKE Cluster is created
     - The Docker Images are built
-    - Kubernetes are deployed
+    - The Kubernetes resources are deployed
 
-5. When the script finished you will see some access information that look like this :
+5. When the script finishes you will see some access information that look like this :
 
 ```
 ========================================
@@ -123,9 +118,9 @@ Demo Credentials:
   Password: demo123
 ```
 
-These information contains the public IP address where you can access the RouteGate application, and some demo credentials that you can use to access a set up account for test and presentation purposes.
+This information contains the public IP address where you can access the RouteGate application, and some demo credentials that you can use to access a set up account for test and presentation purposes.
 
-If you do not see the public IP, or you need to retireve it afterwords, you can run the following command which will return you the public IP :
+If you do not see the public IP, or you need to retrieve it afterwards, you can run the following command which will return you the public IP :
 
 ```
 kubectl get service frontend -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
@@ -133,9 +128,9 @@ kubectl get service frontend -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 
 #### Step 5 - (Optional) Clean up and delete GKE
 
-I have also written a script that clean up all the recources and deletes the kubernete cluster. I have decided to write this script in order to avoid unnecessary GCP charges.
+I have also written a script that cleans up all the resources and deletes the kubernete cluster. I have decided to write this script in order to avoid unnecessary GCP charges.
 
-Tu 'uninstall' RouteGate, navigate to the INFS3208-ROUTEGATE folder and run the following command :
+To uninstall RouteGate, navigate to the INFS3208-ROUTEGATE folder and run the following command :
 
 ```
 cd ~/INFS3208-ROUTEGATE
